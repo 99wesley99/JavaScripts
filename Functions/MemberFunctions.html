@@ -1,0 +1,51 @@
+
+<html>
+<head>
+  <title>Member Functions</title>
+  <style>
+  body{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  #statement--container{
+    padding-top: 5px;
+  }
+  .statement--block{
+    color: white;
+    padding: 10px;
+    margin: 0px 5px 10px 5px;
+    background-color: black;
+  }
+  </style>
+</head>
+<body>
+  <div id="statement--container">
+
+  </div>
+</body>
+<script>
+
+var person = {
+  name: "Wesley Walz",
+  hello: function(thing){
+    console.log('hello');
+    var statement = this.name + " thinks " + thing  + ". ";
+
+    var div = document.createElement('div');
+
+    div.innerHTML = "New Statement: " + statement + "";
+
+    div.setAttribute('class', 'statement--block');
+
+    document.getElementById("statement--container").appendChild(div);
+  }
+}
+
+// this:
+person.hello("something is up");
+person.hello("it's time to grow up");
+person.hello("time is money");
+person.hello("you are a nice person");
+
+</script>
