@@ -1,0 +1,129 @@
+<html>
+<head>
+  <title>Random Returns</title>
+  <style>
+  body{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .button--container{
+    text-align: center;
+  }
+  .button--block{
+    overflow: hidden;
+    border: 3px solid #0e83cd;
+    color: #0e83cd;
+    font-family: inherit;
+    font-size: inherit;
+    background: none;
+    cursor: pointer;
+    margin: 20px auto;
+    padding: 25px 80px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .button--block:after{
+    width: 100%;
+    height: 0;
+    top: 0%;
+    left: 0%;
+    background: #0e83cd;
+    opacity: 0;
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+    .button--block:hover,
+    .button--block:active {
+    	color: white;
+    }
+    .button--block:hover:after {
+    	height: 260%;
+    	opacity: 1;
+    }
+    .button--block:active:after {
+    	height: 400%;
+    	opacity: 1;
+    }
+    #output--container{
+
+    }
+    .output--block--head{
+      display: block;
+      text-align: center;
+      padding: 10px;
+      color: black;
+    }
+    .output--block{
+      color: white;
+      padding: 10px;
+      width: 100px;
+      text-align: center;
+      font-size: 35px;
+      height: 40px;
+      margin: 0 auto;
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+  <div id="output--container">
+    <!--Button to call up random number-->
+    <div class="button--container">
+      <button class="button--block" onclick="GenerateRandomNumber()">
+        Generate
+      </button>
+    </div>
+    <!--Outputting 1-100 -->
+    <span class="output--block--head">Generating 1 through 100</span>
+    <div id="gen-random-one-through-one-houndred" class="output--block">
+
+    </div>
+
+    <!--Button to call up random number-->
+    <div class="button--container">
+      <button class="button--block" onclick="GenerateRandomLetter()">
+        Generate
+      </button>
+    </div>
+    <!--Outputting A-Z -->
+    <span class="output--block--head">Generating A through Z</span>
+    <div id="gen-random-letter" class="output--block">
+
+    </div>
+  </div>
+
+</body>
+<script>
+function GenerateRandomNumber() {
+  var mfe = document.getElementById("gen-random-one-through-one-houndred")
+  mfe.innerHTML = Math.floor((Math.random() * 100) + 1);
+}
+function GenerateRandomLetter() {
+
+
+  var text = '';
+  var chars = 'abcdefghijklmnopqrstuvwxyz';
+  var cnt = new Array(chars.length);
+  for (var i = 0; i < cnt.length; i++) cnt[i] = 0;
+
+    var ch = Math.floor(Math.random() * chars.length);
+    cnt[ch]++;
+    text += chars.charAt(ch);
+    var randomletter = document.getElementById("gen-random-letter");
+    randomletter.innerHTML = text;
+
+}
+</script>
+</html>
